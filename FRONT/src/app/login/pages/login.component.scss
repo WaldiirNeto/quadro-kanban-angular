@@ -1,0 +1,9 @@
+@import '~/src/styles/_variables.scss';
+
+.login-section {
+    background-color: $login-background;
+
+    .content-right {
+        background-color: $green-primary;
+    }
+}

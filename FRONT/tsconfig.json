@@ -21,7 +21,17 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "strictPropertyInitialization":false,
+    "paths": {
+      "@shared/components/*": [ "src/app/shared/components/*" ],
+      "@environments/*": [ "src/environments/*" ],
+      "@helpers/*": [ "src/app/shared/helpers/*" ],
+      "@shared/services/*": ["src/app/shared/services/*"],
+      "@shared/models/*": ["src/app/shared/models/*"],
+      "@shared/enums/*": ["src/app/shared/enums/*"],
+      "@core/*": ["src/app/core/*"]
+  },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

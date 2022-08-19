@@ -1,0 +1,15 @@
+@import './_variables.scss';
+
+.snack-error {
+    background-color: $color-error;
+    color: $color-white;
+}
+
+.snack-success {
+    background-color: $color-success;
+    color: $color-white;
+}
+
+.mat-button-wrapper {
+    color: $color-white;
+}
