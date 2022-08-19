@@ -53,7 +53,7 @@ export class LoginFormComponent extends FormLoginModel implements OnInit, OnDest
   private checkTokenJwt(tokenJwt: string): void {
     if (tokenJwt) {
       this._localStorageService.setItem(GlobalEnums.TOKEN_KANBAN, tokenJwt)
-      this._router.navigate([''])
+      this._router.navigate(['kanban'])
     } else {
       this._snackBarService.open(GlobalEnums.ERROR, `Usuário não encontrado`)
     }
