@@ -1,7 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
-import { MatDialog } from '@angular/material/dialog'
 import { finalize, Subject, takeUntil } from 'rxjs'
-import { ModalCreateTaskComponent } from './components/modal-create-task/modal-create-task.component'
 import { CardModel } from './models/card.model'
 import { KanbanService } from './services/kanban.service'
 
@@ -15,10 +13,7 @@ export class KanbanComponent implements OnInit, OnDestroy {
   protected loading: boolean
   private _destroyObservable = new Subject();
 
-  constructor(
-    private readonly _dialog: MatDialog,
-    private readonly _kanbanService: KanbanService
-  ) { }
+  constructor(private readonly _kanbanService: KanbanService) { }
 
   ngOnInit(): void {
     this._kanbanService.listCards()
@@ -35,15 +30,6 @@ export class KanbanComponent implements OnInit, OnDestroy {
         }
       })
 
-  }
-
-  public openDialog(): void {
-    this._dialog.open(ModalCreateTaskComponent, {
-      width: `500px`,
-      enterAnimationDuration: `1000ms`,
-      exitAnimationDuration: `1000ms`,
-      backdropClass: 'backdropBackground'
-    })
   }
 
   ngOnDestroy(): void {

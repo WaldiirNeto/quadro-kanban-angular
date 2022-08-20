@@ -1,61 +1,17 @@
 <section class="content-kanban d-flex justify-content-between">
     <div class="container  mt-4">
         <div class="row">
-            <div class="d-flex justify-content-end mt-2 mb-2">
-                <button class="btn btn-primary d-flex align-items-center" (click)="this.openDialog()">
-                    <mat-icon class="me-1">add_circle</mat-icon><span>Adicionar nova tarefa</span>
-                </button>
-            </div>
+            <app-button-create-task></app-button-create-task>
         </div>
         <div class="row">
             <div class="col-md mb-2">
-                <div class="content-kanban__jumbotron">
-                    <h3 class="title">To Do</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
+                <app-card></app-card>
             </div>
             <div class="col-md mb-2">
-                <div class="content-kanban__jumbotron">
-                    <h3 class="title">Doing</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
+                <app-card></app-card>
             </div>
-
             <div class="col-md mb-2">
-                <div class="content-kanban__jumbotron">
-                    <h3 class="title">Done</h3>
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
+                <app-card></app-card>
             </div>
         </div>
     </div>
