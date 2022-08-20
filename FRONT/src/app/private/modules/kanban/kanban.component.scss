@@ -1,0 +1,21 @@
+@import '~src/styles/_variables.scss';
+
+.content-kanban {
+    &__jumbotron {
+        border-radius: 10px;
+        padding: 10px;
+        background: $background-jumbotron;
+
+        .title {
+            font-weight: 600;
+        }
+
+        .card {
+            border: none;
+        }
+    }
+}
+
+.backdropBackground {
+    background-color: red;
+}

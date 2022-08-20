@@ -13,3 +13,8 @@
 .mat-button-wrapper {
     color: $color-white;
 }
+
+.backdropBackground {
+    background: $background-modal-blur;
+    backdrop-filter: blur(8px);
+}
