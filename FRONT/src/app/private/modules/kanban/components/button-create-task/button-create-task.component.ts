@@ -14,7 +14,7 @@ export class ButtonCreateTaskComponent {
 
   public openDialog(): void {
     this._dialog.open(ModalCreateTaskComponent, {
-      width: `500px`,
+      width: `80%`,
       enterAnimationDuration: `1000ms`,
       exitAnimationDuration: `1000ms`,
       backdropClass: 'backdropBackground'

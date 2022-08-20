@@ -23,6 +23,7 @@
       "dom"
     ],
     "strictPropertyInitialization":false,
+    "allowSyntheticDefaultImports": true,
     "paths": {
       "@shared/components/*": [ "src/app/shared/components/*" ],
       "@environments/*": [ "src/environments/*" ],

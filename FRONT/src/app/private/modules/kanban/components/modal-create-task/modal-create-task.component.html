@@ -1,19 +1,22 @@
 <section class="modal-create-task">
-    <h2 mat-dialog-title>Adicionar nova tarefa</h2>
-    <mat-dialog-content class="mat-typography">
-        <form>
+    <form [formGroup]="this.form" (submit)="this.createTask()">
+        <h2 mat-dialog-title>Adicionar nova tarefa</h2>
+        <mat-dialog-content class="mat-typography">
             <div class="mb-3">
                 <label for="inputTitle" class="form-label">Título</label>
-                <input type="text" class="form-control" id="inputTitle" aria-describedby="tituloHelp">
+                <input formControlName="titulo" type="text" class="form-control" id="inputTitle"
+                    aria-describedby="tituloHelp">
             </div>
             <div class="mb-3">
                 <label for="contentTextarea" class="form-label">Conteúdo</label>
-                <textarea class="form-control" id="contentTextarea" rows="5" cols="3"></textarea>
+                <quill-editor formControlName="conteudo" [styles]="{height: '200px', width: '100%'}"></quill-editor>
             </div>
-        </form>
-    </mat-dialog-content>
-    <mat-dialog-actions align="end">
-        <button type="submit" class="btn btn-secondary me-1" mat-dialog-close>CANCELAR</button>
-        <button type="submit" class="btn btn-primary">SALVAR</button>
-    </mat-dialog-actions>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button type="button" class="btn btn-outline-primary me-1" mat-dialog-close>CANCELAR</button>
+            <button type="submit" class="btn btn-primary">
+                <app-loader *ngIf="this.loading"></app-loader><span class="ms-1">SALVAR</span>
+            </button>
+        </mat-dialog-actions>
+    </form>
 </section>

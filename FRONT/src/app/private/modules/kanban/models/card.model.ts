@@ -4,3 +4,8 @@ export interface CardModel {
     conteudo: string
     lista: string
 }
+
+export interface CardCreateModel {
+    titulo: string
+    conteudo: string
+}
