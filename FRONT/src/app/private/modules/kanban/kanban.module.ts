@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { SnackBarService } from '@shared/services/snackbar.service'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { LoaderComponent } from '@shared/components/loader/loader.component'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { LoaderComponent } from '@shared/components/loader/loader.component'
     QuillModule.forRoot(),
     KanbanRoutingModule,
     MatSnackBarModule,
-    LoaderComponent
+    LoaderComponent,
+    MatProgressSpinnerModule
   ],
   providers: [SnackBarService]
 })

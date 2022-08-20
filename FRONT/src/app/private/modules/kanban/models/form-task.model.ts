@@ -17,7 +17,7 @@ export class FormTaskModel {
         return new FormGroup<FormTaskInterface>({
             titulo: new FormControl('', [Validators.required]),
             conteudo: new FormControl('', [Validators.required]),
-            lista: new FormControl('ToDo', [Validators.required]),
+            lista: new FormControl('Done', [Validators.required]),
         })
     }
 }

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { finalize, Subject, takeUntil } from 'rxjs'
-import { CardModel } from './models/card.model'
+import { CardModel, listCarPerType } from './models/card.model'
 import { KanbanService } from './services/kanban.service'
 
 @Component({
@@ -12,10 +12,12 @@ export class KanbanComponent implements OnInit, OnDestroy {
 
   protected loading: boolean
   private _destroyObservable = new Subject();
+  protected listCard: listCarPerType
 
   constructor(private readonly _kanbanService: KanbanService) { }
 
   ngOnInit(): void {
+    this.loading = true
     this._kanbanService.listCards()
       .pipe(
         takeUntil(this._destroyObservable),
@@ -23,7 +25,11 @@ export class KanbanComponent implements OnInit, OnDestroy {
       )
       .subscribe({
         next: (listCards: Array<CardModel>) => {
-          console.log(listCards)
+          this.listCard = listCards.reduce((acumulador, valorAtual) => {
+            acumulador[valorAtual.lista] = acumulador[valorAtual.lista] || []
+            acumulador[valorAtual.lista].push(valorAtual)
+            return acumulador
+          }, Object.create(null))
         },
         error: (_) => {
 

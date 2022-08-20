@@ -14,4 +14,10 @@
             border: none;
         }
     }
+
+
+}
+
+.mat-progress-spinner::ng-deep circle {
+    stroke: white;
 }
