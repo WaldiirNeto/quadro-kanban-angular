@@ -1,0 +1,12 @@
+<section class="modal-delete-task">
+    <h1 mat-dialog-title> Deseja deletar o card?</h1>
+    <div mat-dialog-content>
+
+    </div>
+    <div mat-dialog-actions>
+        <button type="button" class="btn btn-outline-secondary me-1" mat-dialog-close>CANCELAR</button>
+        <button type="button" class="btn btn-primary" (click)="this.deleteCard()">
+            <app-loader *ngIf="this.loading"></app-loader><span class="ms-1">SALVAR</span>
+        </button>
+    </div>
+</section>

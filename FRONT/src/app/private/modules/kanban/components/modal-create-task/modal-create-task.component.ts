@@ -1,5 +1,6 @@
 import { DialogRef } from '@angular/cdk/dialog'
 import { Component, OnDestroy } from '@angular/core'
+import { MatDialogRef } from '@angular/material/dialog'
 import { GlobalEnums } from '@shared/enums/global-enums.enum'
 import { SnackBarService } from '@shared/services/snackbar.service'
 import { finalize, Subject, takeUntil } from 'rxjs'
@@ -19,7 +20,7 @@ export class ModalCreateTaskComponent extends FormTaskModel implements OnDestroy
   constructor(
     private readonly _kanbanService: KanbanService,
     private readonly _snackBarService: SnackBarService,
-    private readonly _dialogRef: DialogRef) {
+    private readonly _dialogRef: MatDialogRef<ModalCreateTaskComponent>) {
     super()
   }
 
@@ -33,7 +34,7 @@ export class ModalCreateTaskComponent extends FormTaskModel implements OnDestroy
       )
       .subscribe({
         next: (_) => {
-          this._dialogRef.close()
+          this._dialogRef.close({})
           this._snackBarService.open(GlobalEnums.SUCCESS, 'Tarefa criada com sucesso')
         },
         error: (_) => {

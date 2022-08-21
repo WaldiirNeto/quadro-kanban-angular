@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
+import { filter, Subject, takeUntil } from 'rxjs'
 import { KanbanService } from '../../services/kanban.service'
 import { ModalCreateTaskComponent } from '../modal-create-task/modal-create-task.component'
 
@@ -9,7 +10,8 @@ import { ModalCreateTaskComponent } from '../modal-create-task/modal-create-task
   styleUrls: ['./button-create-task.component.scss']
 })
 export class ButtonCreateTaskComponent {
-
+  @Output() emitToList: EventEmitter<void> = new EventEmitter()
+  private _destroyObservable = new Subject()
   constructor(private readonly _dialog: MatDialog) { }
 
   public openDialog(): void {
@@ -18,7 +20,13 @@ export class ButtonCreateTaskComponent {
       enterAnimationDuration: `1000ms`,
       exitAnimationDuration: `1000ms`,
       backdropClass: 'backdropBackground'
-    })
+    }).afterClosed()
+      .pipe(takeUntil(this._destroyObservable),
+        filter((resultModal: boolean) => resultModal)
+      )
+      .subscribe((_) => {
+        this.emitToList.emit()
+      })
   }
 
 
