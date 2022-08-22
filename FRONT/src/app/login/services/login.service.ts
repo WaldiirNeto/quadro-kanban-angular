@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpPublicClientService } from '@core/http/http-public-client.service'
 import API_URL from '@helpers/api-router.helper'
-import { filter, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 import { LoginModel } from '../models'
 
 @Injectable()

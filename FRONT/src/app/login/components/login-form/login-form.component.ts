@@ -1,5 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http'
-import { Component, OnDestroy, OnInit } from '@angular/core'
+import { Component, OnDestroy } from '@angular/core'
 import { Router } from '@angular/router'
 import { LocalstorageService } from '@core/services/localstorage.service'
 import { GlobalEnums } from '@shared/enums/global-enums.enum'
@@ -14,7 +13,7 @@ import { LoginService } from '../../services/login.service'
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
-export class LoginFormComponent extends FormLoginModel implements OnInit, OnDestroy {
+export class LoginFormComponent extends FormLoginModel implements OnDestroy {
 
   protected loading: boolean
   private _destroyObservable = new Subject()
@@ -24,9 +23,6 @@ export class LoginFormComponent extends FormLoginModel implements OnInit, OnDest
     private readonly _snackBarService: SnackBarService,
     private readonly _router: Router) {
     super()
-  }
-
-  ngOnInit(): void {
   }
 
   public authenticate(): void {
