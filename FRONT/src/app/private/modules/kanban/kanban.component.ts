@@ -23,7 +23,6 @@ export class KanbanComponent implements OnInit, OnDestroy {
   }
 
   public getListCards(): void {
-    console.log(`chamou`)
     this.loading = true
     this._kanbanService.listCards()
       .pipe(

@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core'
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { filter, Subject, takeUntil } from 'rxjs'
-import { CardModel } from '../../models/card.model'
+import { CardModel, listCarPerType } from '../../models/card.model'
 import { ModalCreateTaskComponent } from '../modal-create-task/modal-create-task.component'
 import { ModalDeleteCardComponent } from '../modal-delete-card/modal-delete-card.component'
 
@@ -10,15 +11,39 @@ import { ModalDeleteCardComponent } from '../modal-delete-card/modal-delete-card
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnDestroy {
+export class CardComponent implements OnInit, OnDestroy {
 
-  @Input() listCard: CardModel[]
   @Output() emitToList: EventEmitter<void> = new EventEmitter()
+  @Input() listCard: listCarPerType
+
+  public listToDo: Array<CardModel> = []
+  public listDoing: Array<CardModel> = []
+  public listDone: Array<CardModel> = []
 
   private _destroyObservable$ = new Subject()
 
   constructor(private readonly _dialog: MatDialog) { }
 
+  ngOnInit(): void {
+    this.listToDo = this.listCard['ToDo']
+    this.listDoing = (this.listCard['Doing']?.length ? this.listCard['Doing'] : [])
+    this.listDone = (this.listCard['Done']?.length ? this.listCard['Done'] : [])
+  }
+
+
+  public moveCard(event: CdkDragDrop<Array<CardModel>>, type: string) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex)
+    }
+    else {
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex,
+      )
+    }
+  }
 
   public openModalDeleteCard(id: string): void {
     this._dialog.open(ModalDeleteCardComponent, {

@@ -3,26 +3,9 @@
         <div class="row">
             <app-button-create-task *ngIf="!this.loading;" (emitToList)="this.getListCards()"></app-button-create-task>
         </div>
-        <div class=" row">
+        <div class="row">
             <ng-container *ngIf="!this.loading; else nodata">
-                <div class="col-md-4 mb-2">
-                    <div class="content-kanban__jumbotron">
-                        <h3 class="title">To Do</h3>
-                        <app-card [listCard]="this.listCard['ToDo']" (emitToList)="this.getListCards()"></app-card>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <div class="content-kanban__jumbotron">
-                        <h3 class="title">Doing</h3>
-                        <app-card [listCard]="this.listCard['Doing']" (emitToList)="this.getListCards()"></app-card>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <div class="content-kanban__jumbotron">
-                        <h3 class="title">Done</h3>
-                        <app-card [listCard]="this.listCard['Done']" (emitToList)="this.getListCards()"></app-card>
-                    </div>
-                </div>
+                <app-card [listCard]="this.listCard"></app-card>
             </ng-container>
             <ng-template #nodata>
                 <div class="d-flex justify-content-center">

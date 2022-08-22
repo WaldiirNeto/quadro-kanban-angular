@@ -1,25 +1,105 @@
-<div class="card mb-2" *ngFor="let task of this.listCard">
-    <div class="card-body">
-        <div class="d-flex justify-content-between">
-            <h5 class="p-2">{{task.titulo}}</h5>
-            <span class="d-none d-lg-block">
-                <button class="button-menu" mat-icon-button [matMenuTriggerFor]="menu"
-                    aria-label="Menu para abri ações">
-                    <mat-icon>more_vert</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="this.openModalEditCard(task)">
-                        <mat-icon>edit</mat-icon>
-                        <span>Editar card</span>
-                    </button>
-                    <button mat-menu-item (click)="this.openModalDeleteCard(task.id)">
-                        <mat-icon>delete_foreveer</mat-icon>
-                        <span>Deletar Card</span>
-                    </button>
-                </mat-menu>
-            </span>
+<div cdkDropListGroup>
+    <div class="row">
+        <div class="col-md-4 mb-2">
+            <div class="jumbotron">
+                <h3 class="title">To Do</h3>
+                <div cdkDropList id="toDo" [cdkDropListData]="this.listToDo" class="list-card"
+                    cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event, 'toDo')">
+                    <div class="card mb-2" *ngFor="let task of this.listToDo" cdkDrag>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="p-2">{{task.titulo}}</h5>
+                                <span class="d-none d-lg-block">
+                                    <button class="button-menu" mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Menu para abri ações">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+                                        <button mat-menu-item (click)="this.openModalEditCard(task)">
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Editar card</span>
+                                        </button>
+                                        <button mat-menu-item (click)="this.openModalDeleteCard(task.id)">
+                                            <mat-icon>delete_foreveer</mat-icon>
+                                            <span>Deletar Card</span>
+                                        </button>
+                                    </mat-menu>
+                                </span>
+                            </div>
+                            <hr>
+                            <span [innerHtml]="task.conteudo"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <hr>
-        <span [innerHtml]="task.conteudo"></span>
+
+        <div class="col-md-4 mb-2">
+            <div class="jumbotron">
+                <h3 class="title">Doing</h3>
+                <div cdkDropList id="doing" [cdkDropListData]="this.listDoing" class="list-card"
+                    cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event, 'Doing')">
+                    <div class="card mb-2" *ngFor="let task of this.listDoing" cdkDrag>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="p-2">{{task.titulo}}</h5>
+                                <span class="d-none d-lg-block">
+                                    <button class="button-menu" mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Menu para abri ações">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+                                        <button mat-menu-item (click)="this.openModalEditCard(task)">
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Editar card</span>
+                                        </button>
+                                        <button mat-menu-item (click)="this.openModalDeleteCard(task.id)">
+                                            <mat-icon>delete_foreveer</mat-icon>
+                                            <span>Deletar Card</span>
+                                        </button>
+                                    </mat-menu>
+                                </span>
+                            </div>
+                            <hr>
+                            <span [innerHtml]="task.conteudo"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-2">
+            <div class="jumbotron">
+                <h3 class="title">Done</h3>
+                <div cdkDropList id="done" [cdkDropListData]="this.listDone" class="list-card"
+                    cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event, 'done')" cdkDrag>
+                    <div class="card mb-2" *ngFor="let task of this.listDone" cdkDrag>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="p-2">{{task.titulo}}</h5>
+                                <span class="d-none d-lg-block">
+                                    <button class="button-menu" mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Menu para abri ações">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+                                        <button mat-menu-item (click)="this.openModalEditCard(task)">
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Editar card</span>
+                                        </button>
+                                        <button mat-menu-item (click)="this.openModalDeleteCard(task.id)">
+                                            <mat-icon>delete_foreveer</mat-icon>
+                                            <span>Deletar Card</span>
+                                        </button>
+                                    </mat-menu>
+                                </span>
+                            </div>
+                            <hr>
+                            <span [innerHtml]="task.conteudo"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
