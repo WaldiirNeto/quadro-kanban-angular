@@ -12,4 +12,8 @@ export class TokenService {
   get token(): UserModel {
     return jwt_decode(this._token)
   }
+
+  public logout(): void {
+    localStorage.removeItem(GlobalEnums.TOKEN_KANBAN)
+  }
 }
