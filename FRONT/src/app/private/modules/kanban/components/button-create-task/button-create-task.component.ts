@@ -17,8 +17,8 @@ export class ButtonCreateTaskComponent {
   public openDialog(): void {
     this._dialog.open(ModalCreateTaskComponent, {
       width: `80%`,
-      enterAnimationDuration: `1000ms`,
-      exitAnimationDuration: `1000ms`,
+      enterAnimationDuration: `500ms`,
+      exitAnimationDuration: `500ms`,
       backdropClass: 'backdropBackground'
     }).afterClosed()
       .pipe(takeUntil(this._destroyObservable),

@@ -4,7 +4,7 @@
             <div class="jumbotron">
                 <h3 class="title">To Do</h3>
                 <div cdkDropList id="toDo" [cdkDropListData]="this.listToDo" class="list-card"
-                    cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event, 'toDo')">
+                    cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event)">
                     <div class="card mb-2" *ngFor="let task of this.listToDo" cdkDrag>
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
@@ -37,8 +37,8 @@
         <div class="col-md-4 mb-2">
             <div class="jumbotron">
                 <h3 class="title">Doing</h3>
-                <div cdkDropList id="doing" [cdkDropListData]="this.listDoing" class="list-card"
-                    cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event, 'Doing')">
+                <div cdkDropList id="Doing" [cdkDropListData]="this.listDoing" class="list-card"
+                    cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event)">
                     <div class="card mb-2" *ngFor="let task of this.listDoing" cdkDrag>
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
@@ -71,8 +71,8 @@
         <div class="col-md-4 mb-2">
             <div class="jumbotron">
                 <h3 class="title">Done</h3>
-                <div cdkDropList id="done" [cdkDropListData]="this.listDone" class="list-card"
-                    cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event, 'done')" cdkDrag>
+                <div cdkDropList id="Done" [cdkDropListData]="this.listDone" class="list-card"
+                    cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event)" cdkDrag>
                     <div class="card mb-2" *ngFor="let task of this.listDone" cdkDrag>
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
