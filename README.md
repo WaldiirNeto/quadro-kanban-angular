@@ -27,3 +27,7 @@ Você deve navegar para url `http://localhost:4200` no seu navegador
 ## Build
 
 Para rodar o build do projeto digite `ng build`. Os artefatos do build irão ser gerados na pasta `dist/`
+
+## OBSERVAÇÕES
+
+Faltou os testes e2e unitários.
