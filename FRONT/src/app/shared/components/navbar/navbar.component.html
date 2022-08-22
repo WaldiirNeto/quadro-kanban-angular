@@ -1,8 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand me-2 d-flex align-items-center">
-            <mat-icon class="me-1">account_box</mat-icon>
-            <span>{{this.token.user}}</span>
-        </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container d-flex">
+        <div class="p-2 flex-grow-1">
+            <a class="navbar-brand me-2 d-flex align-items-center">
+                <mat-icon class="me-1">account_box</mat-icon>
+                <span>{{this.token.user}}</span>
+            </a>
+        </div>
+        <div class="p-2"><button type="button" class="btn btn-outline-dark">Sair</button></div>
     </div>
 </nav>

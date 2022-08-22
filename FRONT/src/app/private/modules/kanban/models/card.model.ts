@@ -8,3 +8,14 @@ export interface CardModel {
 export interface listCarPerType {
     [key: string]: Array<CardModel>
 }
+
+export interface EventDragAndDropExit {
+    container: {
+        id: string
+    }
+    item: {
+        dropContainer: {
+            data: CardModel[]
+        }
+    }
+}

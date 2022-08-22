@@ -1,8 +1,8 @@
-import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
+import { CdkDragDrop, CdkDragExit, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop'
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { filter, Subject, takeUntil } from 'rxjs'
-import { CardModel, listCarPerType } from '../../models/card.model'
+import { CardModel, EventDragAndDropExit, listCarPerType } from '../../models/card.model'
 import { KanbanService } from '../../services/kanban.service'
 import { ModalCreateTaskComponent } from '../modal-create-task/modal-create-task.component'
 import { ModalDeleteCardComponent } from '../modal-delete-card/modal-delete-card.component'
@@ -26,13 +26,10 @@ export class CardComponent implements OnInit, OnDestroy {
   constructor(private readonly _dialog: MatDialog, private readonly _kanbanService: KanbanService) { }
 
   ngOnInit(): void {
-    console.log(this.listCard)
     this.listToDo = (this.listCard['ToDo']?.length ? this.listCard['ToDo'] : [])
     this.listDoing = (this.listCard['Doing']?.length ? this.listCard['Doing'] : [])
     this.listDone = (this.listCard['Done']?.length ? this.listCard['Done'] : [])
-    console.log(this.listToDo)
   }
-
 
   public moveCard(event: CdkDragDrop<Array<CardModel>>) {
     if (event.previousContainer === event.container) {
@@ -45,8 +42,15 @@ export class CardComponent implements OnInit, OnDestroy {
         event.previousIndex,
         event.currentIndex,
       )
-      this.updateTask(event.container.data[0], event.container.id)
     }
+  }
+
+  public updateTask(event: CdkDragExit<Array<CardModel>>) {
+    const listenDragAndDrop = event.item.dropped.asObservable()
+    listenDragAndDrop.subscribe((resultEvent: EventDragAndDropExit) => {
+      const card = resultEvent.item.dropContainer.data[0]
+      this._updateTask(card, resultEvent.container.id)
+    })
   }
 
   public openModalDeleteCard(id: string): void {
@@ -83,7 +87,7 @@ export class CardComponent implements OnInit, OnDestroy {
       })
   }
 
-  private updateTask(task: CardModel, type: string) {
+  private _updateTask(task: CardModel, type: string) {
     task.lista = type
     this._kanbanService
       .editTask(task)
