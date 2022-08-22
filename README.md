@@ -1,7 +1,7 @@
-# FRONT
+# FRONT - ANGULAR
 
 Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli)
-version 13.3.6 e atualizada para a versão 14.1
+version 13.3.6 e atualizada para a versão 14.1 e desenvolvido na versão `18` do node então garanta que esteja com a mesma versão ao tentar executar
 
 ## Executar o projeto BACK
 
