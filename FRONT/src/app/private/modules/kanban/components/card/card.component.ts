@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { filter, Subject, takeUntil } from 'rxjs'
 import { CardModel } from '../../models/card.model'
@@ -10,7 +10,7 @@ import { ModalDeleteCardComponent } from '../modal-delete-card/modal-delete-card
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent {
+export class CardComponent implements OnDestroy {
 
   @Input() listCard: CardModel[]
   @Output() emitToList: EventEmitter<void> = new EventEmitter()
@@ -19,6 +19,7 @@ export class CardComponent {
 
   constructor(private readonly _dialog: MatDialog) { }
 
+
   public openModalDeleteCard(id: string): void {
     this._dialog.open(ModalDeleteCardComponent, {
       data: { id },
@@ -26,8 +27,15 @@ export class CardComponent {
       exitAnimationDuration: `1000ms`,
       backdropClass: `backdropBackground`,
       height: `200px`
-    })
+    }).afterClosed()
+      .pipe(takeUntil(this._destroyObservable$),
+        filter((resultModal: boolean) => resultModal)
+      )
+      .subscribe((_) => {
+        this.emitToList.emit()
+      })
   }
+
   public openModalEditCard(task: CardModel): void {
     this._dialog.open(ModalCreateTaskComponent, {
       width: `80%`,
@@ -44,5 +52,10 @@ export class CardComponent {
       .subscribe((_) => {
         this.emitToList.emit()
       })
+  }
+
+  ngOnDestroy(): void {
+    this._destroyObservable$.next(null)
+    this._destroyObservable$.complete()
   }
 }
