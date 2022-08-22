@@ -2,7 +2,7 @@ import { CdkDragDrop, CdkDragExit, moveItemInArray, transferArrayItem } from '@a
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { filter, Subject, takeUntil } from 'rxjs'
-import { CardModel, EventDragAndDropExit, listCarPerType } from '../../models/card.model'
+import { CardModel, EventDragAndDropExit, listCarPerType } from '../../models'
 import { KanbanService } from '../../services/kanban.service'
 import { ModalCreateTaskComponent } from '../modal-create-task/modal-create-task.component'
 import { ModalDeleteCardComponent } from '../modal-delete-card/modal-delete-card.component'

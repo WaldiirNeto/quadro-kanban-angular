@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { filter, Subject, takeUntil } from 'rxjs'
-import { KanbanService } from '../../services/kanban.service'
 import { ModalCreateTaskComponent } from '../modal-create-task/modal-create-task.component'
 
 @Component({
@@ -28,6 +27,4 @@ export class ButtonCreateTaskComponent {
         this.emitToList.emit()
       })
   }
-
-
 }

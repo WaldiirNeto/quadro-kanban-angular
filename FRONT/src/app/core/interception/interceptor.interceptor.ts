@@ -24,7 +24,6 @@ export class UnauthorizeInterceptor implements HttpInterceptor {
             this._router.navigate(['login'])
           }
         }
-
       }))
     )
   }

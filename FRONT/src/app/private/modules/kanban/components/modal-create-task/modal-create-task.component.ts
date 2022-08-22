@@ -1,4 +1,3 @@
-import { DialogRef } from '@angular/cdk/dialog'
 import { HttpErrorResponse } from '@angular/common/http'
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
@@ -18,6 +17,7 @@ export class ModalCreateTaskComponent extends FormTaskModel implements OnInit, O
 
   protected loading: boolean
   private _destroyObservable$ = new Subject()
+
   constructor(
     private readonly _kanbanService: KanbanService,
     private readonly _snackBarService: SnackBarService,

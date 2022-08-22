@@ -17,6 +17,7 @@ import { ButtonCreateTaskComponent } from './components/button-create-task/butto
 import { SnackBarService } from '@shared/services/snackbar.service'
 import { LoaderComponent } from '@shared/components/loader/loader.component'
 import { ModalDeleteCardComponent } from './components/modal-delete-card/modal-delete-card.component'
+import { KanbanService } from './services/kanban.service'
 
 
 @NgModule({
@@ -40,6 +41,6 @@ import { ModalDeleteCardComponent } from './components/modal-delete-card/modal-d
     MatMenuModule,
     DragDropModule
   ],
-  providers: [SnackBarService]
+  providers: [SnackBarService, KanbanService]
 })
 export class KanbanModule { }

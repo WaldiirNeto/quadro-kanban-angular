@@ -4,9 +4,7 @@ import API_URL from '@helpers/api-router.helper'
 import { Observable } from 'rxjs'
 import { CardModel } from '../models/card.model'
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class KanbanService {
 
   constructor(private readonly _http: HttpPrivateClientService) { }
