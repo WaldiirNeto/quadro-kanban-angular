@@ -16,8 +16,13 @@ npm run server
 ```bash
 cd FRONT
 npm install
+npm install -g @angular/cli
 npm run start
 ```
+
+## Para acessar o projeto
+
+Você deve navegar para url `http://localhost:4200` no seu navegador
 
 ## Build
 
