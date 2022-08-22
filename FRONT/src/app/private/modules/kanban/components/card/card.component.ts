@@ -26,9 +26,11 @@ export class CardComponent implements OnInit, OnDestroy {
   constructor(private readonly _dialog: MatDialog, private readonly _kanbanService: KanbanService) { }
 
   ngOnInit(): void {
-    this.listToDo = (this.listCard['toDo']?.length ? this.listCard['toDo'] : [])
+    console.log(this.listCard)
+    this.listToDo = (this.listCard['ToDo']?.length ? this.listCard['ToDo'] : [])
     this.listDoing = (this.listCard['Doing']?.length ? this.listCard['Doing'] : [])
     this.listDone = (this.listCard['Done']?.length ? this.listCard['Done'] : [])
+    console.log(this.listToDo)
   }
 
 
@@ -87,7 +89,9 @@ export class CardComponent implements OnInit, OnDestroy {
       .editTask(task)
       .pipe(takeUntil(this._destroyObservable$)
       )
-      .subscribe((_) => { })
+      .subscribe((_) => {
+        this.emitToList.emit()
+      })
   }
 
 

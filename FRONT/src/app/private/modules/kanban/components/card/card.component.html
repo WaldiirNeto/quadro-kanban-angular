@@ -3,7 +3,7 @@
         <div class="col-md-4 mb-2">
             <div class="jumbotron">
                 <h3 class="title">To Do</h3>
-                <div cdkDropList id="toDo" [cdkDropListData]="this.listToDo" class="list-card"
+                <div cdkDropList id="ToDo" [cdkDropListData]="this.listToDo" class="list-card"
                     cdkDropListSortingDisabled (cdkDropListDropped)="moveCard($event)">
                     <div class="card mb-2" *ngFor="let task of this.listToDo" cdkDrag>
                         <div class="card-body">

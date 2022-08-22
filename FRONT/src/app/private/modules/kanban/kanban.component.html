@@ -5,7 +5,7 @@
         </div>
         <div class="row">
             <ng-container *ngIf="!this.loading; else nodata">
-                <app-card [listCard]="this.listCard"></app-card>
+                <app-card [listCard]="this.listCard" (emitToList)="this.getListCards()"></app-card>
             </ng-container>
             <ng-template #nodata>
                 <div class="d-flex justify-content-center">
