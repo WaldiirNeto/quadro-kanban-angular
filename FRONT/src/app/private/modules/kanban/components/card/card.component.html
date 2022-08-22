@@ -1,0 +1,105 @@
+<div cdkDropListGroup>
+    <div class="row">
+        <div class="col-md-4 mb-2">
+            <div class="jumbotron">
+                <h3 class="title">To Do</h3>
+                <div cdkDropList id="ToDo" [cdkDropListData]="this.listToDo" class="list-card"
+                    (cdkDropListDropped)="moveCard($event)" (cdkDropListExited)="this.updateTask($event)">
+                    <div class="card mb-2" *ngFor="let task of this.listToDo" cdkDrag>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="p-2">{{task.titulo}}</h5>
+                                <span class="d-none d-lg-block">
+                                    <button class="button-menu" mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Menu para abri ações">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+                                        <button mat-menu-item (click)="this.openModalEditCard(task)">
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Editar card</span>
+                                        </button>
+                                        <button mat-menu-item (click)="this.openModalDeleteCard(task.id)">
+                                            <mat-icon>delete_foreveer</mat-icon>
+                                            <span>Deletar Card</span>
+                                        </button>
+                                    </mat-menu>
+                                </span>
+                            </div>
+                            <hr>
+                            <span [innerHtml]="task.conteudo"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-2">
+            <div class="jumbotron">
+                <h3 class="title">Doing</h3>
+                <div cdkDropList id="Doing" [cdkDropListData]="this.listDoing" class="list-card"
+                    (cdkDropListDropped)="moveCard($event)" (cdkDropListExited)="this.updateTask($event)">
+                    <div class="card mb-2" *ngFor="let task of this.listDoing" cdkDrag>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="p-2">{{task.titulo}}</h5>
+                                <span class="d-none d-lg-block">
+                                    <button class="button-menu" mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Menu para abri ações">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+                                        <button mat-menu-item (click)="this.openModalEditCard(task)">
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Editar card</span>
+                                        </button>
+                                        <button mat-menu-item (click)="this.openModalDeleteCard(task.id)">
+                                            <mat-icon>delete_foreveer</mat-icon>
+                                            <span>Deletar Card</span>
+                                        </button>
+                                    </mat-menu>
+                                </span>
+                            </div>
+                            <hr>
+                            <span [innerHtml]="task.conteudo"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-2">
+            <div class="jumbotron">
+                <h3 class="title">Done</h3>
+                <div cdkDropList id="Done" [cdkDropListData]="this.listDone" class="list-card"
+                    (cdkDropListDropped)="moveCard($event)" (cdkDropListExited)="this.updateTask($event)" cdkDrag>
+                    <div class="card mb-2" *ngFor="let task of this.listDone" cdkDrag>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="p-2">{{task.titulo}}</h5>
+                                <span class="d-none d-lg-block">
+                                    <button class="button-menu" mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Menu para abri ações">
+                                        <mat-icon>more_vert</mat-icon>
+                                    </button>
+                                    <mat-menu #menu="matMenu">
+                                        <button mat-menu-item (click)="this.openModalEditCard(task)">
+                                            <mat-icon>edit</mat-icon>
+                                            <span>Editar card</span>
+                                        </button>
+                                        <button mat-menu-item (click)="this.openModalDeleteCard(task.id)">
+                                            <mat-icon>delete_foreveer</mat-icon>
+                                            <span>Deletar Card</span>
+                                        </button>
+                                    </mat-menu>
+                                </span>
+                            </div>
+                            <hr>
+                            <span [innerHtml]="task.conteudo"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

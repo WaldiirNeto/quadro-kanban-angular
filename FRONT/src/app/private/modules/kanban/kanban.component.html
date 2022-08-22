@@ -1,0 +1,20 @@
+<section class="container mt-5">
+    <div class="content-kanban d-flex justify-content-between">
+        <div class="container  mt-5">
+            <div class="row">
+                <app-button-create-task *ngIf="!this.loading;" (emitToList)="this.getListCards()">
+                </app-button-create-task>
+            </div>
+            <div class="row mt-4">
+                <ng-container *ngIf="!this.loading; else nodata">
+                    <app-card [listCard]="this.listCard" (emitToList)="this.getListCards()"></app-card>
+                </ng-container>
+                <ng-template #nodata>
+                    <div class="d-flex justify-content-center">
+                        <mat-spinner></mat-spinner>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</section>

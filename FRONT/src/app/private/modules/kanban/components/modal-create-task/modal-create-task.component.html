@@ -1,0 +1,22 @@
+<section class="modal-create-task">
+    <form [formGroup]="this.form" (submit)="this.onSubmit()">
+        <h2 mat-dialog-title>Adicionar nova tarefa</h2>
+        <mat-dialog-content class="mat-typography">
+            <div class="mb-3">
+                <label for="inputTitle" class="form-label">Título</label>
+                <input formControlName="titulo" type="text" class="form-control" id="inputTitle"
+                    aria-describedby="tituloHelp">
+            </div>
+            <div class="mb-3">
+                <label for="contentTextarea" class="form-label">Conteúdo</label>
+                <quill-editor formControlName="conteudo" [styles]="{height: '200px', width: '100%'}"></quill-editor>
+            </div>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button type="button" class="btn btn-outline-secondary me-1" mat-dialog-close>CANCELAR</button>
+            <button type="submit" class="btn btn-primary" [disabled]="this.form.invalid">
+                <app-loader *ngIf="this.loading"></app-loader><span class="ms-1">SALVAR</span>
+            </button>
+        </mat-dialog-actions>
+    </form>
+</section>

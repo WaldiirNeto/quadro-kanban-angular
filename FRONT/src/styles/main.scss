@@ -1,0 +1,80 @@
+@import './_variables.scss';
+
+.snack-error {
+    background-color: $color-error;
+    color: $color-white;
+}
+
+.snack-success {
+    background-color: $color-success;
+    color: $color-white;
+}
+
+.mat-button-wrapper {
+    color: $color-white;
+}
+
+.backdropBackground {
+    background: $background-modal-blur;
+    backdrop-filter: blur(8px);
+}
+
+.ql-syntax {
+    background-color: #23241f;
+    color: #f8f8f2;
+    overflow: visible;
+}
+
+pre {
+    background-color: #f0f0f0;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    white-space: pre-wrap;
+}
+
+code {
+    font-size: 85%;
+    padding: 2px 4px;
+}
+
+.card-body {
+    font-size: 14px;
+
+    img {
+        width: 250px;
+        height: 100px;
+    }
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+        0 8px 10px 1px rgba(0, 0, 0, 0.14),
+        0 3px 14px 2px rgba(0, 0, 0, 0.12);
+
+    .button-menu {
+        border: none;
+        border-radius: 50%;
+    }
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.list-card.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

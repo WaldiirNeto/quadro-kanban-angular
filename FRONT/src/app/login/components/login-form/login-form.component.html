@@ -1,0 +1,19 @@
+<form [formGroup]="this.form" (submit)="this.authenticate()">
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input formControlName="login" type="email" class="form-control" id="login" aria-describedby="usuario-input"
+            placeholder="Digite seu usuário">
+    </div>
+    <div class="form-group mt-2">
+        <label for="password">Senha</label>
+        <input formControlName="senha" type="password" class="form-control" id="password"
+            placeholder="Digite sua senha">
+    </div>
+
+    <div class="d-flex justify-content-end mt-3">
+        <button type="submit" id="submit-login" aria-hidden="true" name="submit-login"
+            class="btn btn-primary align-self-end" [disabled]="this.form.invalid">
+            <app-loader *ngIf="this.loading"></app-loader><span class="ms-1">ENTRAR</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,47 @@
+@import '~/src/styles/_variables.scss';
+
+.list-card {
+    border-radius: 4px;
+    display: block;
+    min-height: 120px;
+    overflow: hidden;
+}
+
+
+.jumbotron {
+    border-radius: 10px;
+    padding: 10px;
+    background: $background-jumbotron;
+
+    .title {
+        font-weight: 600;
+    }
+
+    .card {
+        border: none;
+    }
+
+    .card {
+        border: none;
+        cursor: move;
+
+        .card-body {
+            font-size: 14px;
+
+            h5 {
+                width: 83%;
+            }
+
+            img {
+                height: 100px;
+                width: 250px;
+            }
+
+            .button-menu {
+                border: none;
+                border-radius: 50%;
+            }
+
+        }
+    }
+}
