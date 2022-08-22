@@ -9,11 +9,13 @@ import { ModalCreateTaskComponent } from './components/modal-create-task/modal-c
 import { CardComponent } from './components/card/card.component'
 import { ButtonCreateTaskComponent } from './components/button-create-task/button-create-task.component'
 import { QuillModule } from 'ngx-quill'
+import { MatMenuModule } from '@angular/material/menu'
 import { ReactiveFormsModule } from '@angular/forms'
 import { SnackBarService } from '@shared/services/snackbar.service'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { LoaderComponent } from '@shared/components/loader/loader.component'
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ModalDeleteCardComponent } from './components/modal-delete-card/modal-delete-card.component'
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     KanbanComponent,
     ModalCreateTaskComponent,
     CardComponent,
-    ButtonCreateTaskComponent
+    ButtonCreateTaskComponent,
+    ModalDeleteCardComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     KanbanRoutingModule,
     MatSnackBarModule,
     LoaderComponent,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatMenuModule
   ],
   providers: [SnackBarService]
 })

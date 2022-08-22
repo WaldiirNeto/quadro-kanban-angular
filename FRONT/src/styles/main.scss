@@ -38,3 +38,17 @@ code {
     font-size: 85%;
     padding: 2px 4px;
 }
+
+.card-body {
+    font-size: 14px;
+
+    img {
+        width: 250px;
+        height: 100px;
+    }
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}

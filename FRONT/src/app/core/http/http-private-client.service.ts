@@ -25,5 +25,10 @@ export class HttpPrivateClientService {
     return this._http.put<T>(url, { headers: { 'Authorization': `Bearer ${token}` } })
   }
 
+  public delete<T>(url: string): Observable<T> {
+    const token = localStorage.getItem(GlobalEnums.TOKEN_KANBAN)
+    return this._http.delete<T>(url, { headers: { 'Authorization': `Bearer ${token}` } })
+  }
+
 
 }

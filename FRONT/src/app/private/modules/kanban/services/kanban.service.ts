@@ -18,4 +18,8 @@ export class KanbanService {
   createTask(payload: CardCreateModel): Observable<void> {
     return this._http.post(API_URL.CARDS, payload)
   }
+
+  deleteTask(id: string): Observable<void> {
+    return this._http.delete(API_URL.CARD(id))
+  }
 }
