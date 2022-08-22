@@ -1,18 +1,18 @@
-<div class="card mb-2" *ngFor="let card of this.listCard">
+<div class="card mb-2" *ngFor="let task of this.listCard">
     <div class="card-body">
         <div class="d-flex justify-content-between">
-            <h5 class="p-2">{{card.titulo}}</h5>
+            <h5 class="p-2">{{task.titulo}}</h5>
             <span class="d-none d-lg-block">
                 <button class="button-menu" mat-icon-button [matMenuTriggerFor]="menu"
                     aria-label="Menu para abri ações">
                     <mat-icon>more_vert</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="this.openModalEditCard(task)">
                         <mat-icon>edit</mat-icon>
                         <span>Editar card</span>
                     </button>
-                    <button mat-menu-item (click)="this.openModalDeleteCard(card.id)">
+                    <button mat-menu-item (click)="this.openModalDeleteCard(task.id)">
                         <mat-icon>delete_foreveer</mat-icon>
                         <span>Deletar Card</span>
                     </button>
@@ -20,6 +20,6 @@
             </span>
         </div>
         <hr>
-        <span [innerHtml]="card.conteudo"></span>
+        <span [innerHtml]="task.conteudo"></span>
     </div>
 </div>

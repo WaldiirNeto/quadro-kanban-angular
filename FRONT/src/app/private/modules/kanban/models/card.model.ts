@@ -5,11 +5,6 @@ export interface CardModel {
     lista: string
 }
 
-export interface CardCreateModel {
-    titulo: string
-    conteudo: string
-}
-
 export interface listCarPerType {
     [key: string]: Array<CardModel>
 }

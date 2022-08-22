@@ -8,19 +8,19 @@
                 <div class="col-md-4 mb-2">
                     <div class="content-kanban__jumbotron">
                         <h3 class="title">To Do</h3>
-                        <app-card [listCard]="this.listCard['ToDo']"></app-card>
+                        <app-card [listCard]="this.listCard['ToDo']" (emitToList)="this.getListCards()"></app-card>
                     </div>
                 </div>
                 <div class="col-md-4 mb-2">
                     <div class="content-kanban__jumbotron">
                         <h3 class="title">Doing</h3>
-                        <app-card [listCard]="this.listCard['Doing']"></app-card>
+                        <app-card [listCard]="this.listCard['Doing']" (emitToList)="this.getListCards()"></app-card>
                     </div>
                 </div>
                 <div class="col-md-4 mb-2">
                     <div class="content-kanban__jumbotron">
                         <h3 class="title">Done</h3>
-                        <app-card [listCard]="this.listCard['Done']"></app-card>
+                        <app-card [listCard]="this.listCard['Done']" (emitToList)="this.getListCards()"></app-card>
                     </div>
                 </div>
             </ng-container>
