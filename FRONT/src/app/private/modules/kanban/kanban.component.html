@@ -5,7 +5,7 @@
                 <app-button-create-task *ngIf="!this.loading;" (emitToList)="this.getListCards()">
                 </app-button-create-task>
             </div>
-            <div class="row">
+            <div class="row mt-4">
                 <ng-container *ngIf="!this.loading; else nodata">
                     <app-card [listCard]="this.listCard" (emitToList)="this.getListCards()"></app-card>
                 </ng-container>

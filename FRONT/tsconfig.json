@@ -24,6 +24,7 @@
     ],
     "strictPropertyInitialization":false,
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "paths": {
       "@shared/components/*": [ "src/app/shared/components/*" ],
       "@environments/*": [ "src/environments/*" ],
